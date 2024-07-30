@@ -6,6 +6,7 @@ VERSION=$(shell git describe --tags --abbrev=0 2>/dev/null | sed -r "s:^v::g")
 IMAGE_NAME := quay.io/app-sre/vault-exporter
 IMAGE_TAG := $(shell git rev-parse --short=7 HEAD)
 
+CONTAINER_ENGINE ?= $(shell which podman >/dev/null 2>&1 && echo podman || echo docker)
 ifneq (,$(wildcard $(CURDIR)/.docker))
     DOCKER_CONF := $(CURDIR)/.docker
 else
@@ -15,12 +16,12 @@ endif
 all: build
 
 image:
-	@docker build -t $(IMAGE_NAME):latest .
-	@docker tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
+	@(CONTAINER_ENGINE) build -t $(IMAGE_NAME):latest .
+	@(CONTAINER_ENGINE) tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
 
 image-push:
-	@docker --config=$(DOCKER_CONF) push $(IMAGE_NAME):latest
-	@docker --config=$(DOCKER_CONF) push $(IMAGE_NAME):$(IMAGE_TAG)
+	@(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):latest
+	@(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):$(IMAGE_TAG)
 
 build: deps clean
 	go build -ldflags '-d -s -w' -tags netgo -installsuffix netgo -o $(NAME)
