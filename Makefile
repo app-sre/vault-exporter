@@ -16,12 +16,12 @@ endif
 all: build
 
 image:
-	@(CONTAINER_ENGINE) build -t $(IMAGE_NAME):latest .
-	@(CONTAINER_ENGINE) tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
+	@$(CONTAINER_ENGINE) build -t $(IMAGE_NAME):latest .
+	@$(CONTAINER_ENGINE) tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
 
 image-push:
-	@(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):latest
-	@(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):$(IMAGE_TAG)
+	@$(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):latest
+	@$(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):$(IMAGE_TAG)
 
 build: deps clean
 	go build -ldflags '-s -w' -tags netgo -installsuffix netgo -o $(NAME)
