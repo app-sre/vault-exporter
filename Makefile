@@ -24,7 +24,7 @@ image-push:
 	@(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):$(IMAGE_TAG)
 
 build: deps clean
-	go build -ldflags '-d -s -w' -tags netgo -installsuffix netgo -o $(NAME)
+	go build -ldflags '-s -w' -tags netgo -installsuffix netgo -o $(NAME)
 
 clean:
 	git clean -Xfd .
