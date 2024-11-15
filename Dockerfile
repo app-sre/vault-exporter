@@ -7,7 +7,7 @@ COPY --chown=${uid}:0 . .
 
 RUN make clean vet build
 
-FROM registry.access.redhat.com/ubi9-minimal:9.4-1227.1726694542 as prod
+FROM registry.access.redhat.com/ubi9-minimal:9.4-1227.1726694542 AS prod
 ARG uid=1001
 
 COPY --chown=${uid}:0 --from=builder /build/vault-exporter /
