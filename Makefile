@@ -16,8 +16,8 @@ endif
 all: build
 
 image:
-	@$(CONTAINER_ENGINE) build -t $(IMAGE_NAME):latest .
-	@$(CONTAINER_ENGINE) tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
+	$(CONTAINER_ENGINE) build -t $(IMAGE_NAME):latest .
+	$(CONTAINER_ENGINE) tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
 
 image-push:
 	@$(CONTAINER_ENGINE) --config=$(DOCKER_CONF) push $(IMAGE_NAME):latest
@@ -28,6 +28,9 @@ build: deps clean
 
 clean:
 	git clean -Xfd .
+
+clean-image:
+	$(CONTAINER_ENGINE) rmi -i $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG) || true
 
 deps:
 	go mod tidy
