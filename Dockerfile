@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/go-toolset:1.21.13-2.1729776560 AS builder
+FROM registry.access.redhat.com/ubi9/go-toolset:9.5-1733160835 AS builder
 
 ARG uid=1001
 
