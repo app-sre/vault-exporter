@@ -37,6 +37,6 @@ require (
 	golang.org/x/net v0.0.0-20190613194153-d28f0bde5980 // indirect
 	golang.org/x/sys v0.0.0-20191220142924-d4481acd189f // indirect
 	golang.org/x/text v0.3.1-0.20181227161524-e6919f6577db // indirect
-	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
+	golang.org/x/time v0.11.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.3.1 // indirect
 )
