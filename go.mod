@@ -1,6 +1,6 @@
 module github.com/app-sre/vault-exporter
 
-go 1.21
+go 1.23.0
 
 require (
 	github.com/hashicorp/vault/api v1.0.2
@@ -33,10 +33,10 @@ require (
 	github.com/prometheus/procfs v0.0.8 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/sirupsen/logrus v1.4.2 // indirect
-	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2 // indirect
-	golang.org/x/net v0.0.0-20190613194153-d28f0bde5980 // indirect
-	golang.org/x/sys v0.0.0-20191220142924-d4481acd189f // indirect
-	golang.org/x/text v0.3.1-0.20181227161524-e6919f6577db // indirect
+	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
+	golang.org/x/text v0.22.0 // indirect
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
 	gopkg.in/square/go-jose.v2 v2.3.1 // indirect
 )
