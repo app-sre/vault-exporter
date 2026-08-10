@@ -26,7 +26,7 @@ require (
 	github.com/hashicorp/vault/sdk v0.1.8 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
-	github.com/mitchellh/go-homedir v1.0.0 // indirect
+	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
 	github.com/pierrec/lz4 v2.0.5+incompatible // indirect
 	github.com/prometheus/client_model v0.1.0 // indirect
