@@ -13,7 +13,7 @@ ARG uid=1001
 
 RUN make clean vet
 
-FROM registry.access.redhat.com/ubi9-minimal:9.5-1734497536 AS prod
+FROM registry.access.redhat.com/ubi9-minimal:9.9-1794467051 AS prod
 
 ARG uid=1001
 
